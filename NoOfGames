@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Halloween {
+
+	
+		static int howManyGames(int p, int d, int m, int s) {
+		   int sum = 0;
+		    if ((m<1 ||  m>p || p>100)
+		          ||(d<1 || d>100 || d>s)
+		            || (s<1 || s>10000 || s<p)){
+		           return 0;
+		    }
+		    else{
+		        for (int i=p; i> m ; i-=d){
+
+		        s -= i;
+		        sum += 1;
+		        if (i<=m ){
+		            break;
+		        }
+		        if (i>s){
+		             s=0;
+		             break;
+		        }
+
+		    }
+
+		    sum += (s/m);
+
+		    return sum;
+
+		}
+		}
+		public static void main(String[] args) {
+		    Scanner in = new Scanner(System.in);
+		    int p = in.nextInt();
+		    int d = in.nextInt();
+		    int m = in.nextInt();
+		    int s = in.nextInt();
+
+
+
+		    int answer = howManyGames(p, d, m, s);
+		    System.out.println(answer);
+		    in.close();
+		}
+		}
